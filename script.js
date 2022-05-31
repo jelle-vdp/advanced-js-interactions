@@ -1,5 +1,8 @@
 const carouselContainer = document.querySelector(".carouselContainer");
 const carouselImgs = document.querySelectorAll(".carouselContainer .carousel-img");
+const carouselArrowBack = document.querySelector(".carousel-back");
+const carouselArrowForward = document.querySelector(".carousel-forward");
+let activeCarouselImg = 0;
 
 const collageImgs = document.querySelectorAll(".collage img");
 
@@ -17,7 +20,6 @@ let lightModus = true;
 const lightModusBtn = document.querySelector(".mode")
 
 const activateCarousel = () => {
-    let activeCarouselImg = 0;
 
     carouselImgs.forEach((img, index) => {
         if (img.classList.contains("carousel-img--selected")){
@@ -35,7 +37,37 @@ const activateCarousel = () => {
     });
 };
 
-setInterval(activateCarousel, 4000);
+const carouselInterval = setInterval(activateCarousel, 4000);
+
+
+carouselArrowBack.addEventListener("click", () => {
+    clearInterval(carouselInterval);
+    if (activeCarouselImg !== 0){
+        carouselImgs[activeCarouselImg].classList.remove("carousel-img--selected");
+        activeCarouselImg--;
+        carouselImgs[activeCarouselImg].classList.add("carousel-img--selected");
+    } else {
+        carouselImgs[activeCarouselImg].classList.remove("carousel-img--selected");
+        activeCarouselImg = carouselImgs.length - 1;
+        carouselImgs[activeCarouselImg].classList.add("carousel-img--selected");
+    }
+});
+
+carouselArrowForward.addEventListener("click", () => {
+    clearInterval(carouselInterval);
+    if (activeCarouselImg !== carouselImgs.length - 1){
+        carouselImgs[activeCarouselImg].classList.remove("carousel-img--selected");
+        activeCarouselImg++;
+        carouselImgs[activeCarouselImg].classList.add("carousel-img--selected");
+    } else {
+        carouselImgs[activeCarouselImg].classList.remove("carousel-img--selected");
+        activeCarouselImg = 0;
+        carouselImgs[activeCarouselImg].classList.add("carousel-img--selected");
+    }
+});
+
+
+
 
 collageImgs.forEach(img => {
     img.addEventListener("click", () => {
@@ -197,7 +229,6 @@ function randomLetter(){
 }
 
 document.addEventListener("keypress", (e) => {
-    console.log(e.key);
     letters.forEach((span) => {
         if (span.innerText === e.key){
             span.classList.add("letter--big");

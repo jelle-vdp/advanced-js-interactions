@@ -83,6 +83,31 @@ img {
     background: royalblue;
     height: 400px;
     padding:0 !important;
+    position: relative;
+}
+
+.carousel-back{
+    position: absolute;
+    left:20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size:5rem;
+    color:#fff;
+    font-weight: 900;
+    background: transparent;
+    border: 0;
+}
+
+.carousel-forward{
+    position: absolute;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size:5rem;
+    color:#fff;
+    font-weight: 900;
+    background: transparent;
+    border: 0;
 }
 
 .carousel-img {
