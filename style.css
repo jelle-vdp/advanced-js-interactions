@@ -1,0 +1,153 @@
+body{
+    padding-bottom: 50px; 
+}
+
+.picture{
+    padding: 10px;
+}
+
+img {
+    height: 250px;
+}
+
+.lightbox {
+    background:rgba(0,0,0, 0.9);
+    height:100vh;
+    width:100vw;
+    position:fixed;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox img {
+    margin-bottom:2rem;
+}
+
+.lightbox h3 {
+    color:#fff;
+}
+
+.lightbox i {
+    color:#fff;
+    position:absolute;
+    top:3rem;
+    right:3rem;
+    font-size:5rem;
+    cursor: pointer;
+}
+
+.poke{
+    font-weight: bold;
+    position:relative;
+    display: inline-block;
+}
+
+.poke__container {
+    position:absolute;
+    top:-200px;
+    left:0;
+}
+
+.chasebox {
+    position: relative;
+}
+
+.chaser{
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+.runner{
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 50%;
+}
+
+.box{
+    border: 1px solid grey;
+    height: 350px;
+}
+
+.carouselContainer{
+    background: royalblue;
+    height: 400px;
+    padding:0 !important;
+}
+
+.carousel-img {
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:none;
+}
+
+.carousel-img--selected {
+    display:block;
+}
+
+.carousel-img__1 {
+    background-image: url("img/carousel-1.jpg");
+}
+.carousel-img__2 {
+    background-image: url("img/carousel-2.jpg");
+}
+
+.carousel-img__3 {
+    background-image: url("img/carousel-3.jpg");
+}
+
+.carousel-img__4 {
+    background-image: url("img/carousel-4.jpg");
+}
+
+
+.title{
+    font-size: 1.5em;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.lightMode{
+    background: rgb(245, 245, 245);
+    color: rgb(10, 10, 10);
+}
+
+.darkMode{
+    background: rgb(10, 10, 10);
+    color: rgb(245, 245, 245);
+}
+
+.bigTitle{
+    font-size: 2.5em;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.mode{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    line-height: 47px;
+    height: 50px;
+    width: 50px;
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+
+.mode:hover{
+    cursor: pointer;
+}
