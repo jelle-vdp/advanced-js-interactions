@@ -54,6 +54,7 @@ img {
 
 .chasebox {
     position: relative;
+    box-sizing: border-box;
 }
 
 .chaser{
@@ -62,8 +63,9 @@ img {
     background: red;
     border-radius: 50%;
     position: absolute;
-    top:0;
+    top:325px;
     left:0;
+    transition: 0.4s ease-in-out;
 }
 
 .runner{

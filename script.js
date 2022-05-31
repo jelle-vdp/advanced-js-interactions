@@ -6,6 +6,7 @@ const collageImgs = document.querySelectorAll(".collage img");
 const pokemons = document.querySelectorAll(".poke");
 
 const chaseBox = document.querySelector(".chasebox");
+const chaser = document.querySelector(".chaser");
 
 const activateCarousel = () => {
     let activeCarouselImg = 0;
@@ -84,43 +85,27 @@ pokemons.forEach(pokemon => {
 
 });
 
-// chaseBox.addEventListener("mousemove", (e) => {
+chaseBox.addEventListener("mousemove", (e) => {
+    
+    let relativePositionCursorX = e.clientX - chaseBox.getBoundingClientRect().left;
+    let relativePositionCursorY = e.clientY - chaseBox.getBoundingClientRect().top;
 
-    
-//     let top = 0;
-//     let left = 0;
+    const maxLeft = chaseBox.getBoundingClientRect().right - chaseBox.getBoundingClientRect().left - 50;
+    const maxTop = chaseBox.getBoundingClientRect().bottom - chaseBox.getBoundingClientRect().top - 50;
 
-//     setInterval(() => {
-//         const chaser = document.querySelector(".chaser");
-    
-//         let relativePositionCursorX = e.clientX - chaseBox.getBoundingClientRect().left;
-//         let relativePositionCursorY = e.clientY - chaseBox.getBoundingClientRect().top;
-    
-//         let relativePositionCircleX = chaser.getBoundingClientRect().left - chaseBox.getBoundingClientRect().left;
-//         let relativePositionCircleY = chaser.getBoundingClientRect().left - chaseBox.getBoundingClientRect().top;
-    
+    if (relativePositionCursorX > maxLeft){
+        chaser.style.left = `${maxLeft}px`
+    } else {
+        chaser.style.left = `${relativePositionCursorX}px`
+    }
 
-//         if (relativePositionCursorX > relativePositionCircleX) {
-//             left++
-//             chaser.style.left = `${top}px`;
-//         } else {
-//             left--
-//             chaser.style.left = `${left}px`
-//         }
-        
-//         if (relativePositionCursorY > relativePositionCircleY) {
-            
-//             top++
-//             chaser.style.top = `${top}px`
-            
-//         } else {
-//             top--;
-//             chaser.style.top = `${top}px`
-//         }
-//         console.log(top, left)
-//     }, 20)
+    if (relativePositionCursorY > maxTop){
+        chaser.style.top = `${maxTop}px`
+    } else {
+        chaser.style.top = `${relativePositionCursorY}px`
+    }
     
-// });
+});
 
 
 Array.from(document.querySelectorAll(".letter")).forEach(el => {
