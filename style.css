@@ -79,6 +79,10 @@ img {
     position: relative;
 }
 
+.alert {
+    color:red;
+}
+
 .carouselContainer{
     background: royalblue;
     height: 400px;
