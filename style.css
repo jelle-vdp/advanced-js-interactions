@@ -52,19 +52,14 @@ img {
     left:0;
 }
 
-.chasebox {
-    position: relative;
-    box-sizing: border-box;
-}
-
 .chaser{
     width: 50px;
     height: 50px;
     background: red;
     border-radius: 50%;
     position: absolute;
-    top:325px;
-    left:0;
+    top:0px;
+    left:0px;
     transition: 0.4s ease-in-out;
 }
 
@@ -73,11 +68,15 @@ img {
     height: 50px;
     background: green;
     border-radius: 50%;
+    position: absolute;
+    top:0px;
+    left:0px;
 }
 
 .box{
     border: 1px solid grey;
     height: 350px;
+    position: relative;
 }
 
 .carouselContainer{
@@ -152,4 +151,18 @@ img {
 
 .mode:hover{
     cursor: pointer;
+}
+
+.letter {
+    font-size:1.5rem;
+    display: inline-block;
+    transition: 0.4s ease-in-out;
+}
+
+.letter--big {
+    font-size: 3rem;
+}
+
+.letter--rotate {
+    transform: rotate(360deg);
 }

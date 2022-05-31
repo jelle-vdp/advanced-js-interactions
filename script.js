@@ -8,6 +8,14 @@ const pokemons = document.querySelectorAll(".poke");
 const chaseBox = document.querySelector(".chasebox");
 const chaser = document.querySelector(".chaser");
 
+const runBox = document.querySelector(".runbox");
+const runner = document.querySelector(".runner");
+
+const letters = document.querySelectorAll(".letter")
+
+let lightModus = true;
+const lightModusBtn = document.querySelector(".mode")
+
 const activateCarousel = () => {
     let activeCarouselImg = 0;
 
@@ -95,17 +103,88 @@ chaseBox.addEventListener("mousemove", (e) => {
 
     if (relativePositionCursorX > maxLeft){
         chaser.style.left = `${maxLeft}px`
+    } else if (relativePositionCursorX < 25) {
+        chaser.style.left = "0px"
     } else {
-        chaser.style.left = `${relativePositionCursorX}px`
+        chaser.style.left = `${relativePositionCursorX - 25}px`
     }
 
     if (relativePositionCursorY > maxTop){
         chaser.style.top = `${maxTop}px`
+    } else if (relativePositionCursorY < 25) {
+        chaser.style.top = "0px"
     } else {
-        chaser.style.top = `${relativePositionCursorY}px`
+        chaser.style.top = `${relativePositionCursorY - 25}px`
     }
     
 });
+
+
+// const runRight = () => {
+//     runner.style.left = `${+runner.style.left.slice(0, -2) + 1}px`
+// }
+
+// const runLeft = () => {
+//     runner.style.left = `${+runner.style.left.slice(0, -2) - 1}px`
+// }
+
+// const runUp = () => {
+//     runner.style.top = `${+runner.style.top.slice(0, -2) - 1}px`
+// }
+
+// const runDown = () => {
+//     runner.style.top = `${+runner.style.top.slice(0, -2) + 1}px`
+// }
+
+// runBox.addEventListener("mousemove", (e) => {
+    
+//     let relativePositionCursorX = e.clientX - runBox.getBoundingClientRect().left;
+//     let relativePositionCursorY = e.clientY - runBox.getBoundingClientRect().top;
+
+//     const maxLeft = runBox.getBoundingClientRect().right - runBox.getBoundingClientRect().left - 50;
+//     const maxTop = runBox.getBoundingClientRect().bottom - runBox.getBoundingClientRect().top - 50;
+
+//     let relativePositionCircleX = +runner.style.left.slice(0, -2);
+//     let relativePositionCircleY = +runner.style.left.slice(0, -2);
+
+//     if (relativePositionCursorX > maxLeft){
+//         runner.style.left = `${maxLeft}px`
+//     } else if (relativePositionCursorX < 50) {
+//         runner.style.left = "0px";
+//     } else if (relativePositionCursorX > relativePositionCircleX) {
+//         if (relativePositionCircleX !== 0){
+//             runLeft();
+//         } else {
+//             runRight()
+//         }
+//     } else {
+//         if (relativePositionCircleX !== maxLeft){
+//             runRight();
+//         } else {
+//             runLeft()
+//         }
+//     }
+
+//     if (relativePositionCursorY > maxTop){
+//         runner.style.top = `${maxTop}px`
+//     } else if (relativePositionCursorY < 50) {
+//         runner.style.top = "0px";
+//     } else if (relativePositionCursorY > relativePositionCircleY) {
+//         if (relativePositionCircleY !== 0){
+//             runUp();
+//         } else {
+//             runDown()
+//         }
+//     } else {
+        
+//         if (relativePositionCircleY !== maxTop){
+//             runDown();
+//         } else {
+//             runUp()
+//         }
+//     }
+    
+// });
 
 
 Array.from(document.querySelectorAll(".letter")).forEach(el => {
@@ -116,3 +195,31 @@ function randomLetter(){
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
     return alphabet[Math.floor(Math.random() * alphabet.length)]
 }
+
+document.addEventListener("keypress", (e) => {
+    console.log(e.key);
+    letters.forEach((span) => {
+        if (span.innerText === e.key){
+            span.classList.add("letter--big");
+            setTimeout(() => span.classList.remove("letter--big"), 3000)
+        }
+    })
+})
+
+letters.forEach((span) => {
+    span.addEventListener("click", () => {
+        span.classList.add("letter--rotate");
+        setTimeout(() => span.classList.remove("letter--rotate"), 3000)
+    })
+});
+
+lightModusBtn.addEventListener("click", () => {
+    lightModus = !lightModus
+    if (lightModus){
+        document.querySelector("body").classList.remove("darkMode");
+        document.querySelector("body").classList.add("lightMode");
+    } else {
+        document.querySelector("body").classList.remove("lightMode");
+        document.querySelector("body").classList.add("darkMode");
+    }
+})
