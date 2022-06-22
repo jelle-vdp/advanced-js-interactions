@@ -1,6 +1,6 @@
 # Title: Advanced-JS-Interactions
 
-- Link: https://jelle-vdp.github.io/advanced-js-interactions/
+- Link: https://jelle-vdp.github.io/js-advanced-interactions/
 - Repository: `Advanced-JS-Interactions`
 - Type of Challenge: `Learning Challenge`
 - Duration: `2 days`
